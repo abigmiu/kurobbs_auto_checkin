@@ -2,8 +2,8 @@ name: Auto Checkin Job
 
 on:
   schedule:
-    # 每天早上 6 点北京时间（UTC+8）运行
-    - cron: '0 22 * * *'  # UTC 时间 22:00 对应北京时间 6:00
+    # 每天 13:14 北京时间（UTC+8）运行
+    - cron: '14 5 * * *'  # UTC 时间 05:14 对应北京时间 13:14
   workflow_dispatch:  # 允许手动触发
 
 jobs:
@@ -34,6 +34,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.TOKEN }}
           DEBUG: ${{ secrets.DEBUG }}
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           BARK_DEVICE_KEY: ${{ secrets.BARK_DEVICE_KEY }}
           BARK_SERVER_URL: ${{ secrets.BARK_SERVER_URL }}
           SERVER3_SEND_KEY: ${{ secrets.SERVER3_SEND_KEY }} # ServerChan3
